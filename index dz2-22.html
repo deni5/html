@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table fruits</title>
+</head>
+<body>
+    <h1>Iro Iro No Kudamono</h1>
+    <table>
+        <tr>
+            <th>Orenji</th>
+            <th>round</th>
+            <th>yellow</th>
+            <th>Turkey</th>
+        </tr>
+        <tr>
+            <td>Ringo</td>
+            <td>round</td>
+            <td>red</td>
+            <td>Ukraine</td>
+        </tr>
+        <tr>
+            <td>Banana</td>
+            <td>drown</td>
+            <td>yellow</td>
+            <td>Equador</td>
+        </tr>
+        <tr>
+            <td>Mikan</td>
+            <td>round</td>
+            <td>red</td>
+            <td>Spain</td>
+        </tr>
+    </table>
+
+    <h2>Lists</h2>
+    <h3>Lists number</h3>
+    <ul>
+        <li>Info</li>
+        <li>Recipes</li>
+        <li>Festivals</li>
+    </ul>
+
+    <h3>Lists numer</h3>
+    <ol>
+        <li>Production</li>
+        <li>Consumption</li>
+        <li>DeTOX</li>
+    </ol>
+
+    <h3>Markening list</h3>
+    <ul>
+        <li>Contacts</li>
+        <li>Questions</li>
+        <li>Registration</li>
+    </ul>
+
+    <h2>Registration form</h2>
+    <form action="process_form.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">e-mail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="topic">Topic:</label>
+        <select id="topic" name="topic">
+            <option value="Question">Questions</option>
+            <option value="Proposal">Proposal</option>
+            <option value="Claim">Claim</option>
+        </select><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
