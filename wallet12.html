@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Wallet</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tahoma:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            color: green;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #address {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: black;
+        }
+
+        #cryptolist {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            color: green;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td:hover {
+            color: black;
+        }
+
+        #crypto-selector {
+            margin-top: 20px;
+
+        }
+
+        #selected-crypto, #current-address, #current-balance, #transaction-block {
+            margin-top: 10px;
+        }
+
+        #transaction-block input {
+            margin-bottom: 10px;
+            border-style: dotted;
+            border-width: 4px;
+            width: 230px;
+        }
+
+        #cryptolist span {
+            cursor: pointer;
+        }
+
+        #cryptolist span:hover {
+            color: black;
+        }
+
+        #transaction-block button {
+        color: white;
+        background-color: green;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+}
+
+        h2 {
+            margin-right: 900px; /* Змініть значення від'ємного margin, щоб зсунути ліворуч */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Crypto_wallet</h2>
+    
+    <div id="address">
+        <strong>Current Address:</strong> 0xE862Ca4b9389d9bC306c2367A36B8Bd45f6838Bb
+    </div>
+
+    <div id="cryptolist">
+        <strong>Your Crypto:</strong>
+        <span id="ETH" onclick="updateSelectedCryptoFromList('ETH')">ETH</span>
+        <span id="BTC" onclick="updateSelectedCryptoFromList('BTC')">BTC</span>
+        <span id="DOT" onclick="updateSelectedCryptoFromList('DOT')">DOT</span>
+    </div>
+    
+    <div id="crypto-selector">
+        <label for="cryptos">Choose a cryptocurrency:</label>
+        <select id="cryptos" onchange="updateSelectedCrypto()">
+            <option value="ETH">ETH</option>
+            <option value="BTC">BTC</option>
+            <option value="DOT">DOT</option>
+        </select>
+    </div>
+
+    <div id="selected-crypto">
+        <strong>Selected Cryptocurrency:</strong> <span id="crypto-display">ETH</span>
+    </div>
+
+    <div id="current-balance">
+        <strong>Current Balance:</strong> <span id="balance-display">0 ETH</span>
+    </div>
+
+    <div id="transaction-block">
+        <label for="recipient">Recipient:</label>
+        <input type="text" id="recipient" placeholder="Enter recipient address">
+        <br>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" placeholder="Enter amount">
+        <br>
+        <button onclick="sendTransaction()">Send</button>
+    </div>
+
+    <script>
+        var balances = {
+            ETH: 0,
+            BTC: 0,
+            DOT: 0
+        };
+
+        function sendTransaction() {
+            alert("Transaction Sent!");
+        }
+
+        function updateSelectedCrypto() {
+            var selectElement = document.getElementById("cryptos");
+            var selectedCryptoDisplay = document.getElementById("crypto-display");
+            var selectedCryptoSpan = document.getElementById(selectElement.value);
+            var balanceDisplay = document.getElementById("balance-display");
+
+            selectedCryptoDisplay.textContent = selectElement.value;
+
+            // Зміна кольору для відповідного span в #cryptolist
+            document.querySelectorAll("#cryptolist span").forEach(span => {
+                span.style.color = "green"; // Спочатку всі на зеленому
+                span.style.fontWeight = "normal"; // Спочатку всі шрифт звичайний
+            });
+
+            selectedCryptoSpan.style.color = "black"; 
+            selectedCryptoSpan.style.fontWeight = "bold";
+
+            // Оновлення балансу
+            balanceDisplay.textContent = balances[selectElement.value] + " " + selectElement.value;
+        }
+
+        function updateSelectedCryptoFromList(crypto) {
+            var selectElement = document.getElementById("cryptos");
+            selectElement.value = crypto;
+            updateSelectedCrypto();
+        }
+    </script>
+
+</body>
+</html>
