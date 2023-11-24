@@ -55,9 +55,9 @@
         }
 
         #transaction-block input {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border-style: dotted;
-            border-width: 4px;
+            border-width: 3px;
             width: 230px;
         }
 
@@ -80,6 +80,7 @@
         h2 {
             margin-right: 900px; 
         }
+
     </style>
 </head>
 <body>
@@ -87,7 +88,7 @@
     <h2>Crypto_wallet</h2>
     
     <div id="address">
-        <strong>Current Address:</strong> 0xE862Ca4b9389d9bC306c2367A36B8Bd45f6838Bb
+        <strong style="color: green;">Current Address:</strong> <em>0xE862Ca4b9389d9bC306c2367A36B8Bd45f6838Bb</em>
     </div>
 
     <div id="cryptolist">
@@ -126,9 +127,9 @@
 
     <script>
         var balances = {
-            ETH: 0,
-            BTC: 0,
-            DOT: 0
+            ETH: 31.0201,
+            BTC: 1.234,
+            DOT: 143.234
         };
 
         function sendTransaction() {
@@ -143,7 +144,6 @@
 
             selectedCryptoDisplay.textContent = selectElement.value;
 
-            // Зміна кольору для відповідного span в #cryptolist
             document.querySelectorAll("#cryptolist span").forEach(span => {
                 span.style.color = "green"; 
                 span.style.fontWeight = "normal"; 
@@ -152,7 +152,6 @@
             selectedCryptoSpan.style.color = "black"; 
             selectedCryptoSpan.style.fontWeight = "bold";
 
-            // Оновлення балансу
             balanceDisplay.textContent = balances[selectElement.value] + " " + selectElement.value;
         }
 
